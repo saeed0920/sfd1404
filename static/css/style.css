@@ -48,6 +48,23 @@ body {
 	gap: 8px;
 }
 
+.nav-toggle {
+	display: none;
+	background: none;
+	border: 0;
+	padding: 8px;
+	cursor: pointer;
+}
+
+.nav-toggle .bar {
+	display: block;
+	width: 22px;
+	height: 2px;
+	background: #333;
+	border-radius: 2px;
+	margin: 4px 0;
+}
+
 .nav-link {
 	display: inline-block;
 	padding: 8px 12px;
@@ -193,5 +210,37 @@ body {
 	.info-text p {
 		font-size: 14px;
 		line-height: 1.6;
+	}
+}
+
+@media (max-width: 768px) {
+	.nav-container {
+		padding: 8px 12px;
+	}
+
+	.nav-toggle {
+		display: block;
+	}
+
+	.nav-links {
+		position: absolute;
+		top: 56px;
+		right: 0;
+		left: 0;
+		background: #fff;
+		box-shadow: 0 8px 16px rgba(0,0,0,.08);
+		display: none;
+		flex-direction: column;
+		padding: 8px;
+		gap: 4px;
+	}
+
+	.nav-links.open {
+		display: flex;
+	}
+
+	.nav-link {
+		padding: 10px 12px;
+		border-radius: 6px;
 	}
 }
