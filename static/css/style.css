@@ -1,0 +1,175 @@
+@font-face {
+    font-family: "Vazirmatn";
+    font-display: auto;
+    font-style: normal;
+    font-weight: 400;
+    src: url("/font/Vazirmatn-Regular.woff2") format("woff2");
+}
+  
+body {
+	margin: 0;
+	font-family: "Vazirmatn", sans-serif;
+	background-color: #f8f8f8;
+}
+
+nav {
+	position: sticky;
+	top: 0;
+	background-color: white;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+	z-index: 1000;
+	direction: rtl;
+	font-size: 24px;
+}
+
+nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+nav ul li {
+	padding: 12px 15px;
+}
+
+nav ul li a {
+	text-decoration: none;
+	color: #666;
+	font-weight: normal;
+	font-size: 15px;
+	transition: color 0.2s ease;
+}
+
+nav ul li a:hover {
+	color: #007acc;
+}
+
+.hero {
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 40px 0;
+	margin-top: 10px;
+}
+
+.hero img {
+	max-width: 1100px;
+	width: 95%;
+	height: auto;
+	border-radius: 10px;
+}
+
+.info-section-wrapper {
+	background-color: #fff;
+	padding: 40px 0;
+}
+
+.info-section {
+	display: flex;
+	flex-direction: row;
+	max-width: 1100px;
+	margin: 0 auto;
+	min-height: 400px;
+	gap: 20px;
+}
+
+.info-text {
+	flex: 1;
+	padding: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.info-text .label {
+	color: #007acc;
+	font-weight: bold;
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+
+.info-text h2 {
+	margin: 0 0 20px 0;
+	font-size: 28px;
+}
+
+.info-text p {
+	line-height: 1.8;
+	color: #333;
+	font-size: 16px;
+}
+
+.info-image {
+	flex: 1;
+	position: relative;
+	background-image: url('/image/info.png');
+	background-size: cover;
+	background-position: center;
+	border-radius: 20px;
+	overflow: hidden;
+}
+
+.info-image img {
+	display: none;
+	/* hidden on desktop */
+}
+
+.overlay-label {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	background-color: rgba(26, 139, 157, 0.9);
+	color: white;
+	padding: 8px 15px;
+	font-size: 14px;
+	border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+	.info-section {
+		flex-direction: column;
+		padding: 0 15px;
+	}
+
+	.info-image {
+		width: 100%;
+		background: none;
+		margin-bottom: 20px;
+		border-radius: 12px;
+		overflow: hidden;
+	}
+
+	.info-image img {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+
+	.overlay-label {
+		font-size: 12px;
+		padding: 6px 10px;
+		top: 10px;
+		right: 10px;
+	}
+
+	.info-text {
+		padding: 0;
+	}
+
+	.info-text .label {
+		font-size: 13px;
+	}
+
+	.info-text h2 {
+		font-size: 22px;
+	}
+
+	.info-text p {
+		font-size: 14px;
+		line-height: 1.6;
+	}
+}
