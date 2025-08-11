@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+{{ partial "head.html" . }}
+<body>
+    {{ partial "header.html" . }}
+    <main class="container" dir="rtl" style="max-width: 800px; margin: 2rem auto; padding: 0 1rem;">
+        <h1 style="text-align: center;">{{ .Title }}</h1>
+        <div class="content">
+            {{ .Content }}
+        </div>
+    </main>
+</body>
+</html>
