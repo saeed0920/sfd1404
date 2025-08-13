@@ -1,6 +1,20 @@
-<nav>
-    <ul>
-        <li><a href="#">خانه</a></li>
-        <li><a href="#">درباره</a></li>
+<nav class="navbar" dir="rtl">
+  <div class="nav-container">
+    <a class="brand" href="{{ "/" | relURL }}">
+      <span class="brand-title">{{ .Site.Title }}</span>
+    </a>
+    <button class="nav-toggle" aria-label="باز کردن منو" aria-expanded="false">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+    <ul class="nav-links">
+      <li>
+        <a class="nav-link {{ if eq .RelPermalink "/" }}active{{ end }}" href="{{ "/" | relURL }}">خانه</a>
+      </li>
+      <li>
+        <a class="nav-link {{ if hasPrefix .RelPermalink "/about/" }}active{{ end }}" href="{{ "/about/" | relURL }}">درباره ما</a>
+      </li>
     </ul>
+  </div>
 </nav>
