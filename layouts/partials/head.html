@@ -1,7 +1,32 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{ .Site.Title }}</title>
+  {{- $title := ( .Title ) -}}
+  {{- $siteTitle := ( .Site.Title ) -}}
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="{{ .Site.Params.banner | absURL }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  {{- if .IsHome -}}
+  <meta property="og:title" content="{{ $siteTitle }}">
+  <title>{{ $siteTitle }}</title>
+  {{- else -}}
+  <meta property="og:title" content="{{ $title }} - {{ $siteTitle }}">
+  <meta property="og:description" content="{{ .Params.description }}">
+  <title>{{ $title }} - {{ $siteTitle }}</title>
+  {{- end -}}
   <link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}css/style.css" />
+  <link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}css/fa-solid.min.css" />
+  <link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}css/fontawesome.min.css" />
   <script defer src="{{ .Site.BaseURL }}js/site.js"></script>
+  <script
+    src="https://cdn.databuddy.cc/databuddy.js"
+    data-client-id="knpL2xBRXCIzQcUYIjjBh"
+    data-track-outgoing-links="true"
+    data-track-interactions="true"
+    data-track-engagement="true"
+    data-track-exit-intent="true"
+    data-enable-batching="true"
+    crossOrigin="anonymous"
+    async
+  ></script>
 </head>

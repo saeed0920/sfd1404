@@ -1,15 +1,26 @@
 @font-face {
-    font-family: "Vazirmatn";
-    font-display: auto;
-    font-style: normal;
-    font-weight: 400;
-    src: url("/font/Vazirmatn-Regular.woff2") format("woff2");
+	font-family: "Vazirmatn";
+	font-display: auto;
+	font-style: normal;
+	font-weight: 400;
+	src: url("/font/Vazirmatn-Regular.woff2") format("woff2");
 }
-  
+
 body {
 	margin: 0;
 	font-family: "Vazirmatn", sans-serif;
-	background-color: #f8f8f8;
+	background-color: white;
+}
+
+a {
+	color: #3498db;
+	text-decoration: none;
+}
+
+a:hover,
+a:focus {
+	color: #217dbb;
+	text-decoration: underline;
 }
 
 .navbar {
@@ -32,7 +43,7 @@ body {
 
 .brand {
 	text-decoration: none;
-	color: #111;
+	color: #444;
 }
 
 .brand-title {
@@ -45,7 +56,7 @@ body {
 	padding: 0;
 	list-style: none;
 	display: flex;
-	gap: 8px;
+	gap: 4px;
 }
 
 .nav-toggle {
@@ -86,8 +97,7 @@ body {
 	font-weight: 600;
 }
 
-.hero {
-	background-color: white;
+.banner {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -95,122 +105,21 @@ body {
 	margin-top: 10px;
 }
 
-.hero img {
+.banner img {
 	max-width: 1100px;
 	width: 95%;
 	height: auto;
 	border-radius: 10px;
 }
 
-.info-section-wrapper {
-	background-color: #fff;
-	padding: 40px 0;
-}
-
-.info-section {
-	display: flex;
-	flex-direction: row;
-	max-width: 1100px;
-	margin: 0 auto;
-	min-height: 400px;
-	gap: 20px;
-}
-
-.info-text {
-	flex: 1;
-	padding: 30px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
-
-.info-text .label {
-	color: #007acc;
-	font-weight: bold;
-	font-size: 14px;
-	margin-bottom: 10px;
-}
-
-.info-text h2 {
-	margin: 0 0 20px 0;
-	font-size: 28px;
-}
-
-.info-text p {
-	line-height: 1.8;
+.info-box {
+	direction: rtl;
+	max-width: 800px;
+	margin: 2rem auto;
+	padding: 1rem 1.5rem;
+	border-top: 3px solid #3498db;
+	font-size: 1.1rem;
 	color: #333;
-	font-size: 16px;
-}
-
-.info-image {
-	flex: 1;
-	position: relative;
-	background-image: url('/image/info.png');
-	background-size: cover;
-	background-position: center;
-	border-radius: 20px;
-	overflow: hidden;
-}
-
-.info-image img {
-	display: none;
-	/* hidden on desktop */
-}
-
-.overlay-label {
-	position: absolute;
-	top: 20px;
-	right: 20px;
-	background-color: rgba(26, 139, 157, 0.9);
-	color: white;
-	padding: 8px 15px;
-	font-size: 14px;
-	border-radius: 4px;
-}
-
-@media (max-width: 768px) {
-	.info-section {
-		flex-direction: column;
-		padding: 0 15px;
-	}
-
-	.info-image {
-		width: 100%;
-		background: none;
-		margin-bottom: 20px;
-		border-radius: 12px;
-		overflow: hidden;
-	}
-
-	.info-image img {
-		display: block;
-		width: 100%;
-		height: auto;
-	}
-
-	.overlay-label {
-		font-size: 12px;
-		padding: 6px 10px;
-		top: 10px;
-		right: 10px;
-	}
-
-	.info-text {
-		padding: 0;
-	}
-
-	.info-text .label {
-		font-size: 13px;
-	}
-
-	.info-text h2 {
-		font-size: 22px;
-	}
-
-	.info-text p {
-		font-size: 14px;
-		line-height: 1.6;
-	}
 }
 
 @media (max-width: 768px) {
@@ -228,7 +137,7 @@ body {
 		right: 0;
 		left: 0;
 		background: #fff;
-		box-shadow: 0 8px 16px rgba(0,0,0,.08);
+		box-shadow: 0 8px 16px rgba(0, 0, 0, .08);
 		display: none;
 		flex-direction: column;
 		padding: 8px;
@@ -243,4 +152,183 @@ body {
 		padding: 10px 12px;
 		border-radius: 6px;
 	}
+}
+
+.card-grid {
+	direction: rtl;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	gap: 20px;
+	max-width: 800px;
+	border-top: 3px solid #3498db;
+	margin: 2rem auto;
+	padding: 1rem 1.5rem;
+	font-size: 1.1rem;
+	color: #333;
+}
+
+.card {
+	background: white;
+	border-radius: 8px;
+	padding: 20px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	text-align: center;
+}
+
+.icon {
+	font-size: 24px;
+	margin-bottom: 10px;
+}
+
+.card h3 {
+	margin: 10px 0;
+	font-size: 18px;
+}
+
+.card p {
+	font-size: 14px;
+	line-height: 1.6;
+}
+
+.copy-box {
+	display: inline-block;
+	border-radius: 8px;
+	padding: 4px 8px;
+	font-family: monospace;
+	font-size: 16px;
+	letter-spacing: 1px;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	user-select: all;
+}
+
+.ltr-number {
+	direction: ltr;
+	unicode-bidi: bidi-override;
+}
+
+.copy-box:hover {
+	background: #e5e7eb;
+	border-color: #9ca3af;
+}
+
+.copy-box:active {
+	background: #d1d5db;
+}
+
+.copy-box.copied {
+	background: #dcfce7;
+	border-color: #22c55e;
+	color: #166534;
+}
+
+.team {
+	direction: rtl;
+	max-width: 800px;
+	margin: 2rem auto;
+	padding: 1rem 1.5rem;
+	border-top: 3px solid #3498db;
+	font-size: 1.1rem;
+}
+
+.team h2 {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.team-members {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	justify-content: center;
+}
+
+.member {
+	background: white;
+	border: 1px solid #e5e7eb;
+	border-radius: 10px;
+	padding: 15px;
+	width: 200px;
+	text-align: center;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.member img {
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	object-fit: cover;
+	margin-bottom: 10px;
+}
+
+.member h3 {
+	margin: 5px 0;
+	font-size: 1.1rem;
+}
+
+.member:hover {
+	transform: scale(1.03);
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.join-us {
+	border: 2px dashed #9ca3af;
+	background: #f9fafb;
+	color: #374151;
+	font-style: italic;
+	cursor: pointer;
+	text-decoration: none;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+}
+
+.join-us i {
+	font-size: 50px;
+	margin-bottom: 10px;
+	color: #6b7280;
+}
+
+.join-us:hover {
+	transform: scale(1.03);
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-section {
+	text-align: center;
+	direction: rtl;
+	max-width: 800px;
+	margin: 2rem auto;
+	padding: 1rem 1.5rem;
+	border-top: 3px solid #3498db;
+	font-size: 1.1rem;
+}
+
+.gallery-section h2 {
+	margin-bottom: 1rem;
+}
+
+.gallery {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 1rem;
+}
+
+.gallery a {
+	display: block;
+}
+
+.gallery img {
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+	border-radius: 10px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	transition: transform 0.2s ease;
+}
+
+.gallery img:hover {
+	transform: scale(1.05);
 }

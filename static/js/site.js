@@ -14,3 +14,10 @@
     });
   });
 })();
+
+function copyToClipboard(el) {
+  const text = el.getAttribute('data-copy');
+  navigator.clipboard.writeText(text).then(() => {
+       alert('کپی شد!');
+  });
+}

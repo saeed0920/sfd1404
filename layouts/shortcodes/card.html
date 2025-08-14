@@ -1,0 +1,5 @@
+<div class="card {{ .Get "color" }}">
+  <div class="icon"><i class="fa-solid fa-{{ .Get "icon" }}"></i></div>
+  <h3>{{ .Get "title" }}</h3>
+  <p>{{ .Inner | markdownify }}</p>
+</div>

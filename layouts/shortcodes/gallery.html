@@ -1,0 +1,21 @@
+<section class="gallery-section">
+  <h2>{{ .Get "title" | default "گالری" }}</h2>
+  <div class="gallery">
+
+    {{ $folder := .Get "folder" | default "gallery" }}
+    {{ $basePath := printf "./assets/%s" $folder }}
+    {{ $relPath := printf "/%s/" $folder }}
+
+    {{ range (readDir $basePath) }}
+        {{ $fileName := .Name }}
+        {{ with resources.Get (print $relPath $fileName) }}
+            <a href="{{ .RelPermalink }}" target="_blank">
+                {{ with .Resize "300x" }}
+                    <img src="{{ .RelPermalink }}" height="150" />
+                {{ end }}
+            </a>
+        {{ end }}
+    {{ end }}
+
+  </div>
+</section>
