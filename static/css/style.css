@@ -42,13 +42,21 @@ a:focus {
 }
 
 .brand {
-	text-decoration: none;
-	color: #444;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #444;
 }
 
 .brand-title {
 	font-size: 16px;
 	font-weight: 700;
+}
+
+.brand-logo {
+    height: 38px;
+    width: auto;
 }
 
 .nav-links {
