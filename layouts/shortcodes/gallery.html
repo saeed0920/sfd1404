@@ -10,7 +10,7 @@
         {{ $fileName := .Name }}
         {{ with resources.Get (print $relPath $fileName) }}
             <a href="{{ .RelPermalink }}" target="_blank">
-                {{ with .Resize "300x" }}
+                {{ with .Resize "600x" }}
                     <img src="{{ .RelPermalink }}" height="150" />
                 {{ end }}
             </a>
