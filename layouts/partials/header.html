@@ -19,6 +19,9 @@
       <li>
         <a class="nav-link {{ if hasPrefix .RelPermalink "/staff/" }}active{{ end }}" href="{{ "/staff/" | relURL }}">همکاری</a>
       </li>
+      <li>
+        <a class="nav-link {{ if hasPrefix .RelPermalink "/news/" }}active{{ end }}" href="{{ "/news/" | relURL }}">خبر</a>
+      </li>
     </ul>
   </div>
 </nav>

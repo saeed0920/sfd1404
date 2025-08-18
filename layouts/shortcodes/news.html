@@ -1,0 +1,24 @@
+{{ if .Get "main" }}
+<div class="timeline">
+<h2>خبرنامه</h2>
+<h4>عضو خبرنامه باشید تا از ثبت‌نام جا نمونید!</h4>
+<div class="button-container">
+<a class="button" href="/news/index.xml">عضویت در خبرنامه</a>
+</div>
+{{ end }}
+<div class="timeline-container">
+    {{ range site.Data.news }}
+        <div class="timeline-item">
+            <div class="timeline-date">{{ .persianDatetime }}</div>
+            <div class="timeline-content">
+                <h3 class="timeline-title">{{ .title }}</h2>
+                {{ if .text }}
+                    <p class="timeline-text">{{ .text }}</p>
+                {{ end }}
+            </div>
+        </div>
+    {{ end }}
+</div>
+{{ if .Get "main" }}
+</div>
+{{ end }}
