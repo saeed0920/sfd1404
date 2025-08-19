@@ -234,7 +234,7 @@ a:focus {
 	margin: 2rem auto;
 	padding: 1rem 1.5rem;
 	border-top: 3px solid #3498db;
-	font-size: 1.1rem;
+	font-size: 1rem;
 }
 
 .team h2 {
@@ -308,7 +308,7 @@ a:focus {
 	margin: 2rem auto;
 	padding: 1rem 1.5rem;
 	border-top: 3px solid #3498db;
-	font-size: 1.1rem;
+	font-size: 1rem;
 }
 
 .gallery-section h2 {
@@ -343,7 +343,7 @@ a:focus {
 	margin: 1rem auto;
 	padding: 1rem 1.5rem;
 	border-top: 3px solid #3498db;
-	font-size: 1.1rem;
+	font-size: 1rem;
 }
 
 .timeline h2 {
@@ -354,6 +354,10 @@ a:focus {
 .timeline h4 {
 	text-align: center;
 	margin-bottom: 20px;
+}
+
+.timeline h3 {
+	font-weight: 400;
 }
 
 .timeline-container {
@@ -418,15 +422,13 @@ a:focus {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 100px;
 }
 
 .button {
 	background-color: #217dbb;
-	;
 	color: #fff;
 	padding: 10px 20px;
-	font-size: 16px;
+	font-size: 14px;
 	font-weight: bold;
 	border: none;
 	border-radius: 6px;
