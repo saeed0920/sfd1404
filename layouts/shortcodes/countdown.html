@@ -1,0 +1,26 @@
+<div class="countdown-container">
+  <div class="countdown-bar" data-target-date="{{ .Get "targetDate" }}" role="timer">
+      <div class="countdown-title">{{ .Get "title" }}</div>
+    <div class="timer" id="timer">
+      <div class="segment">
+        <span class="value" id="days">۰۰</span>
+        <span class="label">روز</span>
+      </div>
+      <div class="segment">
+        <span class="value" id="hours">۰۰</span>
+        <span class="label">ساعت</span>
+      </div>
+      <div class="segment">
+        <span class="value" id="minutes">۰۰</span>
+        <span class="label">دقیقه</span>
+      </div>
+      <div class="segment">
+        <span class="value" id="seconds">۰۰</span>
+        <span class="label">ثانیه</span>
+      </div>
+    </div>
+    <div class="live-badge" id="liveBadge">
+      <span class="live-dot"></span>{{ .Get "liveText" }}
+    </div>
+  </div>
+</div>

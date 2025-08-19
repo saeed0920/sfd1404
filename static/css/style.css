@@ -439,3 +439,64 @@ a:focus {
 .button:hover {
 	background-color: #f0f0f0;
 }
+
+.countdown-container .countdown-bar {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 0rem auto;
+	max-width: 600px;
+	text-align: center;
+}
+
+.countdown-container .countdown-title {
+	font-weight: 600;
+	margin-bottom: 0.75rem;
+	font-size: 1.1rem;
+}
+
+.countdown-container .timer {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.5rem;
+	font-variant-numeric: tabular-nums;
+}
+
+.countdown-container .segment {
+	border: 1px solid #ddd;
+	padding: 0.6rem 0.75rem;
+	border-radius: 0.75rem;
+	min-width: 60px;
+	text-align: center;
+	flex: 1 1 40px;
+}
+
+.countdown-container .value {
+	font-size: 1.4rem;
+	font-weight: 700;
+	display: block;
+}
+
+.countdown-container .label {
+	font-size: 0.75rem;
+	color: #555;
+}
+
+.countdown-container .live-badge {
+	display: none;
+	justify-content: center;
+	gap: 0.5rem;
+	font-weight: 700;
+	color: #2e9c6a;
+	margin-top: 0.5rem;
+	font-size: 1rem;
+}
+
+.countdown-container .live-dot {
+	width: 0.6rem;
+	height: 0.6rem;
+	border-radius: 999px;
+	background: #2e9c6a;
+}
