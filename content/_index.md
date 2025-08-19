@@ -41,7 +41,7 @@
 {{< card icon="hashtag" title="شبکه‌های اجتماعی" >}}
 مطالب و عکس‌های مربوط به جشن آزادی نرم‌افزار سال ۱۴۰۴ بیرجند رو با هشتگ **#birsfd** در شبکه‌های اجتماعی منتشر کنید. همین‌طور می‌تونید ما رو از شبکه‌های اجتماعی زیر دنبال کنید:
 
-[ماستادون](khiar.net/@BirLug) - [تلگرام](https://t.me/birlug) - [پیرتیوب](https://tubedu.org/c/birlug)
+[ماستادون](https://khiar.net/@BirLug) - [تلگرام](https://t.me/birlug) - [پیرتیوب](https://tubedu.org/c/birlug)
 {{< /card >}}
 {{< /card-grid >}}
 
