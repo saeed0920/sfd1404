@@ -1,0 +1,21 @@
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>نام و نام خانوادگی</th>
+        <th>تاریخ پرداخت</th>
+        <th>توضیحات</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{ if .Inner }}
+        {{ .Inner }}
+      {{ else }}
+        <tr class="empty-row">
+          <td colspan="4">خالی</td>
+        </tr>
+      {{ end }}
+    </tbody>
+  </table>
+</div>

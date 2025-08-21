@@ -14,9 +14,6 @@
         <a class="nav-link {{ if eq .RelPermalink "/" }}active{{ end }}" href="{{ "/" | relURL }}">خانه</a>
       </li>
       <li>
-        <a class="nav-link {{ if hasPrefix .RelPermalink "/donation/" }}active{{ end }}" href="{{ "/donation/" | relURL }}">حمایت</a>
-      </li>
-      <li>
         <a class="nav-link {{ if hasPrefix .RelPermalink "/staff/" }}active{{ end }}" href="{{ "/staff/" | relURL }}">همکاری</a>
       </li>
       <li>
@@ -24,6 +21,9 @@
       </li>
       <li>
         <a class="nav-link {{ if hasPrefix .RelPermalink "/news/" }}active{{ end }}" href="{{ "/news/" | relURL }}">خبر</a>
+      </li>
+      <li>
+        <a class="nav-link {{ if hasPrefix .RelPermalink "/donation/" }}active{{ end }}" href="{{ "/donation/" | relURL }}">حمایت ❤</a>
       </li>
     </ul>
   </div>
