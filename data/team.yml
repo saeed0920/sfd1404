@@ -4,3 +4,6 @@ members:
   - name: "امیر محمدی"
     link: "https://amiremohamadi.github.io"
     image: "/image/team/amir.jpg"
+  - name: "احسان محمدی"
+    link: "https://www.linkedin.com/in/ehsan-mohammadi"
+    image: "/image/team/ehsan.jpg"
