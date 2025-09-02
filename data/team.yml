@@ -1,12 +1,12 @@
-title: "تیم اجرایی"
-join_link: "https://survey.porsline.ir/s/k3JDvQmr"
+title: 'تیم اجرایی'
+join_link: 'https://survey.porsline.ir/s/k3JDvQmr'
 members:
-  - name: "امیر محمدی"
-    link: "https://amiremohamadi.github.io"
-    image: "/image/team/amir.jpg"
-  - name: "احسان محمدی"
-    link: "https://www.linkedin.com/in/ehsan-mohammadi"
-    image: "/image/team/ehsan.jpg"
-  - name: "سعید آبادیان"
-    link: "https://www.linkedin.com/in/saeed-dev"
-    image: "/image/team/saeed.jpg"
+  - name: 'امیر محمدی'
+    link: 'https://amiremohamadi.github.io'
+    image: '/image/team/amir.jpg'
+  - name: 'احسان محمدی'
+    link: 'https://www.linkedin.com/in/ehsan-mohammadi'
+    image: '/image/team/ehsan.jpg'
+  - name: 'سعید آبادیان'
+    link: 'https://www.linkedin.com/in/saeed-dev'
+    image: '/image/team/saeed.jpg'
