@@ -3,7 +3,7 @@
   --text-nav-color: #1f2937;
   --text-second-color: #4b5563;
   --text-link-color: #2563eb;
-  --text-highligh-color: #facc15;
+  --text-highligh-color: #3338a0;
   --b-green-color: #16a34a;
   --bg-main-color: #f9fafb;
   --bg-card-color: #fff;
@@ -79,7 +79,10 @@ a:focus {
   list-style: none;
   display: flex;
   gap: 4px;
-  a {
+}
+
+@media only screen and (max-width: 48.125em) {
+  .nav-links a {
     width: 92%;
     width: fill-available;
     width: -webkit-fill-available;
