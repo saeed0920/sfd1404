@@ -9,8 +9,16 @@
       </tr>
     </thead>
     <tbody>
-      {{ if .Inner }}
-        {{ .Inner }}
+      {{ $donations := site.Data.donations }}
+      {{ if $donations }}
+        {{ range $i, $d := $donations }}
+          <tr>
+            <td>{{ add $i 1 }}</td>
+            <td>{{ $d.donator_name }}</td>
+            <td>{{ $d.date }}</td>
+            <td>{{ $d.message }}</td>
+          </tr>
+        {{ end }}
       {{ else }}
         <tr class="empty-row">
           <td colspan="4">خالی</td>
