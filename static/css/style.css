@@ -582,6 +582,59 @@ td:first-child {
   background: #fafafa;
 }
 
+.stickers-section {
+  text-align: center;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem 1.5rem;
+  border-top: 3px solid #3498db;
+  font-size: 0.95rem;
+}
+
+.stickers-section h2 {
+  margin-bottom: 1rem;
+}
+
+.stickers-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  justify-items: center;
+}
+
+.sticker-item {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 12px;
+  width: 140px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+}
+
+.sticker-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.sticker-item img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  background: #f9fafb;
+  border-radius: 6px;
+}
+
+.sticker-title {
+  font-size: 0.85rem;
+  color: #333;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
 footer {
   background: #f3f4f6;
   text-align: center;

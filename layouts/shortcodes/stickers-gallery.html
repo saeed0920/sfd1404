@@ -1,0 +1,25 @@
+<section class="stickers-section">
+  <h2>{{ .Get "title" | default "استیکرها" }}</h2>
+  <div class="stickers-gallery">
+
+    {{ $folder := .Get "folder" | default "stickers" }}
+    {{ $basePath := printf "./assets/%s" $folder }}
+    {{ $relPath := printf "/%s/" $folder }}
+
+    {{ range (readDir $basePath) }}
+        {{ $fileName := .Name }}
+        {{ $title := (replace (replace $fileName ".jpg" "") ".png" "") }}
+        {{ with resources.Get (print $relPath $fileName) }}
+            <div class="sticker-item">
+              <a href="{{ .RelPermalink }}" target="_blank">
+                {{ with .Resize "400x" }}
+                  <img src="{{ .RelPermalink }}" alt="{{ $title }}" />
+                {{ end }}
+              </a>
+              <p class="sticker-title">ارسالی از {{ $title }}</p>
+            </div>
+        {{ end }}
+    {{ end }}
+
+  </div>
+</section>
