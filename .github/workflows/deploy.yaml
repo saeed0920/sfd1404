@@ -7,6 +7,11 @@ on:
     paths-ignore:
       - 'README.md'
 
+  workflow_run:
+    workflows: ["fetch donates"]
+    types:
+      - completed
+
 permissions:
   contents: read
   pages: write

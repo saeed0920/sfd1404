@@ -33,7 +33,7 @@ with urllib.request.urlopen(req) as resp:
 
 donations = [
     {
-        "donator_name": d["donator"]["donator_name"],
+        "donator_name": d["donator"] if isinstance(d["donator"], str) else d["donator"]["donator_name"],
         "amount": d["donator_data"]["amount"],
         "date": f"{to_persian_numbers(JalaliDateTime.fromtimestamp(d['donator_data']['timestamp']).day)} " +
                 f"{persian_months[JalaliDateTime.fromtimestamp(d['donator_data']['timestamp']).month]} " +
