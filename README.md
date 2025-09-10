@@ -1,4 +1,5 @@
 # BirSFD 1404
+
 install [hugo](https://gohugo.io/installation/) and run the following commands:
 
 ```sh
