@@ -10,3 +10,6 @@ members:
   - name: 'سعید آبادیان'
     link: 'https://www.linkedin.com/in/saeed-dev'
     image: '/image/team/saeed.jpg'
+  - name: 'عرفان عربی'
+    link: 'https://www.linkedin.com/in/erfoux'
+    image: '/image/team/erfan.jpg'
