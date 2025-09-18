@@ -361,6 +361,13 @@ li {
   margin-bottom: 1rem;
 }
 
+.gallery-section iframe {
+  width: 80%;
+  height: 360px;
+  border-radius: 10px;
+  border: none;
+}
+
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
