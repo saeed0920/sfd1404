@@ -18,6 +18,37 @@
       });
     }
 
+    // faq
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        q.parentElement.classList.toggle('open');
+      });
+    });
+
+    // attendees
+    const attendeesSection = document.querySelector('.attendees-section');
+    if (attendeesSection) {
+      const container = attendeesSection.querySelector('.attendees-container');
+      const apiUrl = 'https://api.evand.com/events/birjandlug-sfd1404/attendees/public?per_page=100';
+      fetch(apiUrl)
+        .then(res => res.json())
+        .then(body => {
+          body.data.forEach(attendee => {
+            const div = document.createElement('div');
+            div.className = 'attendee';
+            div.setAttribute('data-name', `${attendee.first_name} ${attendee.last_name || ''}`);
+            const img = document.createElement('img');
+            img.src = `https://gravatar.com/avatar/${attendee.email_md5}?s=60&d=retro`;
+            img.alt = `${attendee.first_name} ${attendee.last_name || ''}`;
+            div.appendChild(img);
+            container.appendChild(div);
+          })
+        })
+        .catch(err => {
+          container.innerHTML = '<p>خطا در بارگذاری.</p>';
+        });
+    }
+
     // countdown
     const countdownEl = document.querySelector('.countdown-bar');
     if (!countdownEl) return;

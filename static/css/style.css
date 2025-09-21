@@ -471,6 +471,17 @@ li {
   margin: 0;
 }
 
+.register-button-container {
+  padding-bottom: 15px;
+  text-align: center;
+  flex-direction: column;
+}
+
+.register-button {
+  text-align: center;
+  width: 100px;
+}
+
 .button-container {
   display: flex;
   justify-content: center;
@@ -638,6 +649,115 @@ td:first-child {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.attendees-section {
+  text-align: center;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem 1.5rem 1rem 1.5rem;
+  border-top: 3px solid var(--b-green-color);
+  font-size: 1rem;
+}
+
+.attendees-section h2 {
+  margin-bottom: 1rem;
+}
+
+.attendees-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  justify-content: end;
+  gap: 12px;
+  padding: 10px 0;
+  gap: 12px;
+  padding: 10px 0;
+  flex-wrap: nowrap;
+}
+
+.attendees-container::-webkit-scrollbar {
+  display: none;
+}
+
+.attendee {
+  flex: 0 0 auto;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: visible;
+  position: relative;
+}
+
+.attendee img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.attendee::after {
+  content: attr(data-name);
+  position: absolute;
+  bottom: -24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px);
+  background: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #000;
+  white-space: nowrap;
+  display: none;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.attendee:hover::after {
+  display: block;
+  transform: translateX(-50%) translateY(-15px); 
+}
+
+.faq-section {
+  text-align: center;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem 1.5rem;
+  border-top: 3px solid var(--b-green-color);
+  font-size: 1rem;
+}
+
+.faq-section h2 {
+  margin-bottom: 1rem;
+}
+
+.faq-item {
+  text-align: right;
+  border-bottom: 1px solid #ddd;
+}
+
+.faq-question {
+  cursor: pointer;
+  padding: 1rem;
+  background: #fff;
+  transition: background 0.3s;
+  font-weight: bold;
+}
+
+.faq-question:hover {
+  background: #f0f0f0;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 1rem;
+  background: #fafafa;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 200px;
+  padding: 1rem;
 }
 
 footer {

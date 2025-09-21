@@ -5,10 +5,11 @@
 
 {{< countdown
 title="تا برگزاری رویداد"
-targetDate="2025-10-02T18:00:00+03:30"
+targetDate="2025-10-02T17:00:00+03:30"
 liveText="رویداد شروع شد!"
 >}}
 
+{{< register main="true" >}}
 {{< info >}}
 
 [جشن آزادی نرم‌افزار](https://digitalfreedoms.org/fa/sfd) یک رویداد فنی نیست!

@@ -23,6 +23,9 @@
         <a class="nav-link {{ if hasPrefix .RelPermalink "/news/" }}active{{ end }}" href="{{ "/news/" | relURL }}">خبر</a>
       </li>
       <li>
+        <a class="nav-link {{ if hasPrefix .RelPermalink "/register/" }}active{{ end }}" href="{{ "/register/" | relURL }}">ثبت‌نام</a>
+      </li>
+      <li>
         <a class="nav-link {{ if hasPrefix .RelPermalink "/donation/" }}active{{ end }}" href="{{ "/donation/" | relURL }}">حمایت ❤</a>
       </li>
     </ul>
