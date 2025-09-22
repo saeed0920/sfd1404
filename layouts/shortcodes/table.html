@@ -6,10 +6,11 @@
         <th>نام و نام خانوادگی</th>
         <th>تاریخ پرداخت</th>
         <th>توضیحات</th>
+        <th>مبلغ</th>
       </tr>
     </thead>
     <tbody>
-      {{ $donations := site.Data.donations }}
+      {{ $donations := append site.Data.donations site.Data.donations_static }}
       {{ if $donations }}
         {{ range $i, $d := $donations }}
           <tr>
@@ -17,11 +18,12 @@
             <td>{{ $d.donator_name }}</td>
             <td>{{ $d.date }}</td>
             <td>{{ $d.message }}</td>
+            <td>{{ div $d.amount 10 }} تومان</td>
           </tr>
         {{ end }}
       {{ else }}
         <tr class="empty-row">
-          <td colspan="4">خالی</td>
+          <td colspan="5">خالی</td>
         </tr>
       {{ end }}
     </tbody>
