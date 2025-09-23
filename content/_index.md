@@ -59,6 +59,8 @@ liveText="رویداد شروع شد!"
 
 {{< team >}}
 
+{{< support >}}
+
 {{< gallery folder="gallery/sfd1403" title="پارسال چطور بود..." >}}
 
 {{< timeline >}}
