@@ -26,6 +26,9 @@
     });
 
     // attendees
+
+
+
     const attendeesSection = document.querySelector('.attendees-section');
     if (attendeesSection) {
       const container = attendeesSection.querySelector('.attendees-container');
@@ -33,7 +36,10 @@
       fetch(apiUrl)
         .then(res => res.json())
         .then(body => {
-          body.data.forEach(attendee => {
+          const attendees = body.data;
+          console.log("Total attendees:", attendees.length);
+          const MAX_VISIBLE = 32;
+          attendees.reverse().forEach((attendee, index) => {
             const div = document.createElement('div');
             div.className = 'attendee';
             div.setAttribute('data-name', `${attendee.first_name} ${attendee.last_name || ''}`);
@@ -41,13 +47,44 @@
             img.src = `https://gravatar.com/avatar/${attendee.email_md5}?s=60&d=retro`;
             img.alt = `${attendee.first_name} ${attendee.last_name || ''}`;
             div.appendChild(img);
+
+            if (index >= MAX_VISIBLE) {
+              div.classList.add('hidden');
+            }
             container.appendChild(div);
-          })
+          });
+
+          if (attendees.length > MAX_VISIBLE) {
+            let expanded = false;
+            const hiddenCount = attendees.length - MAX_VISIBLE;
+
+            const btn = document.createElement('button');
+            btn.textContent = `+${hiddenCount} نفر دیگر`;
+            btn.className = 'show-more-btn';
+
+            btn.addEventListener('click', () => {
+              expanded = !expanded;
+              const allAttendees = container.querySelectorAll('.attendee');
+              allAttendees.forEach((el, i) => {
+                if (i >= MAX_VISIBLE) {
+                  if (expanded) {
+                    el.classList.remove('hidden');
+                  } else {
+                    el.classList.add('hidden');
+                  }
+                }
+              });
+              btn.textContent = expanded ? `${attendees.length} نفر شرکت کرده‌اند` : `${hiddenCount}+ نفر دیگه`;
+            });
+            attendeesSection.appendChild(btn);
+          }
         })
         .catch(err => {
           container.innerHTML = '<p>خطا در بارگذاری.</p>';
         });
     }
+
+
 
     // countdown
     const countdownEl = document.querySelector('.countdown-bar');

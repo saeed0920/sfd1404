@@ -651,6 +651,41 @@ td:first-child {
   overflow: hidden;
 }
 
+
+/* for memeber registered section */
+.attendee {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.3s ease, transform 0.5s ease;
+}
+.attendee.hidden {
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  height: 0;
+  overflow: hidden;
+}
+.show-more-btn {
+  padding: .5rem .8rem;
+  border: none;
+  outline: none;
+  border-radius: .5rem;
+  background: var(--text-link-color);
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.show-more-btn:hover {
+  background-color: var(--b-green-color);
+}
+
+.hidden {
+    opacity :0;
+    transform : translateY(0);
+    transition: all 0.3s ease, opacity 0.1s ease;
+}
+
 .attendees-section {
   text-align: center;
   max-width: 800px;
@@ -666,10 +701,8 @@ td:first-child {
 
 .attendees-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
   justify-content: end;
-  gap: 12px;
-  padding: 10px 0;
   gap: 12px;
   padding: 10px 0;
   flex-wrap: nowrap;
@@ -714,7 +747,7 @@ td:first-child {
 
 .attendee:hover::after {
   display: block;
-  transform: translateX(-50%) translateY(-15px); 
+  transform: translateX(-50%) translateY(-15px);
 }
 
 .faq-section {
