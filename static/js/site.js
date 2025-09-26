@@ -26,9 +26,6 @@
     });
 
     // attendees
-
-
-
     const attendeesSection = document.querySelector('.attendees-section');
     if (attendeesSection) {
       const container = attendeesSection.querySelector('.attendees-container');
@@ -64,6 +61,7 @@
 
             btn.addEventListener('click', () => {
               expanded = !expanded;
+              container.classList.toggle('collapsed');
               const allAttendees = container.querySelectorAll('.attendee');
               allAttendees.forEach((el, i) => {
                 if (i >= MAX_VISIBLE) {

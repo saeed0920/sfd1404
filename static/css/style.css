@@ -651,13 +651,12 @@ td:first-child {
   overflow: hidden;
 }
 
-
-/* for memeber registered section */
 .attendee {
   opacity: 1;
   transform: translateY(0);
   transition: all 0.3s ease, transform 0.5s ease;
 }
+
 .attendee.hidden {
   opacity: 0;
   transform: translateY(-10px);
@@ -665,15 +664,18 @@ td:first-child {
   height: 0;
   overflow: hidden;
 }
+
 .show-more-btn {
-  padding: .5rem .8rem;
+  background-color: #217dbb;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 14px;
   border: none;
-  outline: none;
-  border-radius: .5rem;
-  background: var(--text-link-color);
-  color: white;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background 0.2s ease;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
 }
 
 .show-more-btn:hover {
@@ -706,6 +708,12 @@ td:first-child {
   gap: 12px;
   padding: 10px 0;
   flex-wrap: nowrap;
+}
+
+.attendees-container.collapsed {
+  max-height: 280px;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
 }
 
 .attendees-container::-webkit-scrollbar {
