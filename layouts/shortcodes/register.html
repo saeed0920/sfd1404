@@ -1,8 +1,9 @@
 <div class="button-container register-button-container">
 {{ if .Get "main" }}
-<h2>ثبت‌نام شروع شده! میای؟!</h2>
-<a class="button register-button" href="/register">ثبت‌نام</a>
+<a class="button register-button disable-button" href="/register">
+    ظرفیت تکمیل شد
+</a>
 {{ else }}
-<a class="button register-button" href="https://evand.com/events/birjandlug-sfd1404" target="_blank">ثبت‌نام</a>
+<a class="button register-button disable-button" href="https://evand.com/events/birjandlug-sfd1404" target="_blank">پر شد! 🎉</a>
 {{ end }}
 </div>

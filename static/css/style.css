@@ -479,7 +479,7 @@ li {
 
 .register-button {
   text-align: center;
-  width: 100px;
+  width: 110px;
 }
 
 .button-container {
@@ -856,4 +856,20 @@ footer {
   border-top: 1px solid #e5e7eb;
   line-height: 1.6;
   color: #4b5563;
+}
+
+.disable-button{
+  background: linear-gradient(180deg,#f0f2f5,#e7eaee);
+  color: #7b8187;
+  box-shadow: none;
+  opacity: 0.95;
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: translateY(0);
+  border: 1px solid rgba(120,125,130,0.12);
+}
+
+.disable-button:focus {
+  outline: none;
+  box-shadow: none;
 }
