@@ -30,16 +30,36 @@
     if (attendeesSection) {
       const container = attendeesSection.querySelector('.attendees-container');
       const apiUrl = 'https://api.evand.com/events/birjandlug-sfd1404/attendees/public?per_page=100';
-      fetch(apiUrl)
-        .then(res => res.json())
-        .then(body => {
-          const attendees = body.data;
-          console.log("Total attendees:", attendees.length);
+
+      // recursive fetch to handle pagination
+      async function fetchAllAttendees(url, all = []) {
+        try {
+          const res = await fetch(url);
+          const body = await res.json();
+
+          const attendees = body.data || [];
+          all.push(...attendees);
+
+          const pagination = body.meta?.pagination;
+          if (pagination?.links?.next) {
+            return fetchAllAttendees(pagination.links.next, all);
+          }
+
+          return all;
+        } catch (err) {
+          return all;
+        }
+      }
+
+      fetchAllAttendees(apiUrl)
+        .then(attendees => {
           const MAX_VISIBLE = 32;
+
           attendees.reverse().forEach((attendee, index) => {
             const div = document.createElement('div');
             div.className = 'attendee';
             div.setAttribute('data-name', `${attendee.first_name} ${attendee.last_name || ''}`);
+
             const img = document.createElement('img');
             img.src = `https://gravatar.com/avatar/${attendee.email_md5}?s=60&d=retro`;
             img.alt = `${attendee.first_name} ${attendee.last_name || ''}`;
@@ -61,27 +81,26 @@
 
             btn.addEventListener('click', () => {
               expanded = !expanded;
-              container.classList.toggle('collapsed');
               const allAttendees = container.querySelectorAll('.attendee');
+              container.classList.toggle('collapsed');
               allAttendees.forEach((el, i) => {
                 if (i >= MAX_VISIBLE) {
-                  if (expanded) {
-                    el.classList.remove('hidden');
-                  } else {
-                    el.classList.add('hidden');
-                  }
+                  el.classList.toggle('hidden', !expanded);
                 }
               });
-              btn.textContent = expanded ? `${attendees.length} نفر شرکت کرده‌اند` : `${hiddenCount}+ نفر دیگه`;
+
+              btn.textContent = expanded
+                ? `${attendees.length} نفر شرکت کرده‌اند`
+                : `+${hiddenCount} نفر دیگر`;
             });
+
             attendeesSection.appendChild(btn);
           }
         })
-        .catch(err => {
+        .catch(() => {
           container.innerHTML = '<p>خطا در بارگذاری.</p>';
         });
     }
-
 
 
     // countdown
