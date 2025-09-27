@@ -655,6 +655,7 @@ td:first-child {
   opacity: 1;
   transform: translateY(0);
   transition: all 0.3s ease, transform 0.5s ease;
+  overflow: visible;
 }
 
 .attendee.hidden {
@@ -708,12 +709,11 @@ td:first-child {
   gap: 12px;
   padding: 10px 0;
   flex-wrap: nowrap;
+  transition : all .2s ease-in;
 }
 
 .attendees-container.collapsed {
   max-height: 280px;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
 }
 
 .attendees-container::-webkit-scrollbar {
