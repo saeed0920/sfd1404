@@ -667,6 +667,7 @@ td:first-child {
 }
 
 .show-more-btn {
+  font-family: 'Vazirmatn';
   background-color: #217dbb;
   color: #fff;
   padding: 10px 20px;
