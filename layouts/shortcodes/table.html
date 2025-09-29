@@ -1,31 +1,119 @@
-<div class="table-container">
-  <table>
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>نام و نام خانوادگی</th>
-        <th>تاریخ پرداخت</th>
-        <th>توضیحات</th>
-        <th>مبلغ</th>
-      </tr>
-    </thead>
-    <tbody>
-      {{ $donations := append site.Data.donations site.Data.donations_static }}
-      {{ if $donations }}
-        {{ range $i, $d := $donations }}
+{{ $donations := append site.Data.donations site.Data.donations_static }}
+{{ $donations := sort $donations "amount" "desc" }}
+
+{{ $donationsTotalInTomans := 0.0 }}
+{{ range $donations }}
+  {{ $donationsTotalInTomans = add $donationsTotalInTomans (div (float .amount) 10) }}
+{{ end }}
+
+{{ $expenses := sort site.Data.expenses "amount" "desc" }}
+
+{{ $expensesTotalInTomans := 0.0 }}
+{{ range site.Data.expenses }}
+  {{ $expensesTotalInTomans = add $expensesTotalInTomans (div (float .amount) 10) }}
+{{ end }}
+
+{{ $percent := 0.0 }}
+{{ if gt $expensesTotalInTomans 0 }}
+  {{ $percent = math.Min 100 (mul (div $donationsTotalInTomans $expensesTotalInTomans) 100) }}
+{{ end }}
+
+<div style="text-align: center; margin-bottom: 2rem; margin-top : 4rem;">
+  <h1 style="font-size: 1.8rem; font-weight: 700; color: #1e293b;">گزارش مالی</h1>
+  <p style="font-size: 1rem; color: #4b5563; max-width: 600px; margin: 0.5rem auto;">
+    خیلی باعث خوشحالی و افتخاره که جشن آزادی نرم‌افزارمون تقریبا با دونیشن‌ها داره برگزار می‌شه. برای شفافیت بیشتر، گزارش مالی ریز هزینه‌ها و دونیشن‌ها رو می‌تونید در ادامه صفحه ببینید!
+  </p>
+</div>
+
+<div class="financial-card">
+  <h2>  وضعیت کلی 💰</h2>
+
+  <div class="financial-bar">
+    <div class="donations-bar" style="position: absolute; left:0; top:0; height:100%; background:#22c55e; width: {{ printf "%.0f" $percent }}%; border-radius: 8px 0 0 8px; transition: width 0.5s ease;"></div>
+  </div>
+
+  <div class="summary">
+    <p>درآمد کل: <script>document.write(Number({{ printf "%.0f" $donationsTotalInTomans }}).toLocaleString('fa-IR') + ' تومان');</script></p>
+    <p>هزینه کل: <script>document.write(Number({{ printf "%.0f" $expensesTotalInTomans }}).toLocaleString('fa-IR') + ' تومان');</script></p>
+    <p>مانده: <script>document.write(Number({{ printf "%.0f" (sub $donationsTotalInTomans $expensesTotalInTomans) }}).toLocaleString('fa-IR') + ' تومان');</script></p>
+  </div>
+</div>
+
+<div class="cards-container">
+  {{/* donations */}}
+  <div class="cards-container_card">
+    <h3>حمایت ها 📥 </h3>
+    <div class="table-container">
+      <table>
+        <thead>
           <tr>
-            <td>{{ add $i 1 }}</td>
-            <td>{{ $d.donator_name }}</td>
-            <td>{{ $d.date }}</td>
-            <td>{{ $d.message }}</td>
-            <td>{{ div $d.amount 10 }} تومان</td>
+            <th>#</th>
+            <th>نام و نام خانوادگی</th>
+            <th>تاریخ پرداخت</th>
+            <th>توضیحات</th>
+            <th>مبلغ</th>
           </tr>
-        {{ end }}
-      {{ else }}
-        <tr class="empty-row">
-          <td colspan="5">خالی</td>
-        </tr>
-      {{ end }}
-    </tbody>
-  </table>
+        </thead>
+        <tbody>
+          {{ if $donations }}
+            {{ range $i, $d := $donations }}
+              <tr>
+                <td data-label="#"> {{ add $i 1 }}</td>
+                <td data-label="نام و نام خانوادگی">{{ $d.donator_name }}</td>
+                <td data-label="تاریخ پرداخت">{{ $d.date }}</td>
+                <td data-label="توضیحات">{{ $d.message }}</td>
+                <td data-label="مبلغ">
+                  <script>
+                    document.write(Number({{ div (float $d.amount) 10 }}).toLocaleString('fa-IR') + ' تومان');
+                  </script>
+                </td>
+              </tr>
+            {{ end }}
+          {{ else }}
+            <tr class="empty-row">
+              <td colspan="5">خالی</td>
+            </tr>
+          {{ end }}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  {{/* expenses */}}
+  <div class="cards-container_card">
+    <h3> هزینه‌ها 📤</h3>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>عنوان</th>
+            <th>توضیحات</th>
+            <th>مبلغ</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{ if $expenses }}
+            {{ range $i, $e := $expenses }}
+              <tr>
+                <td data-label="#"> {{ add $i 1 }}</td>
+                <td data-label="عنوان">{{ $e.title }}</td>
+                <td data-label="توضیحات">{{ $e.description }}</td>
+                <td data-label="مبلغ">
+                  <script>
+                    document.write(Number({{ div (float $e.amount) 10 }}).toLocaleString('fa-IR') + ' تومان');
+                  </script>
+                </td>
+              </tr>
+            {{ end }}
+          {{ else }}
+            <tr class="empty-row">
+              <td colspan="4">خالی</td>
+            </tr>
+          {{ end }}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
 </div>

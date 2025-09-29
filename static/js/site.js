@@ -53,7 +53,12 @@
 
       fetchAllAttendees(apiUrl)
         .then(attendees => {
-          const MAX_VISIBLE = 32;
+          let MAX_VISIBLE;
+          const clientWidth = document.querySelector("body").clientWidth;
+          if (clientWidth < 350) MAX_VISIBLE = 15;
+            else if (clientWidth < 650) MAX_VISIBLE = 20;
+           else if (clientWidth < 850) MAX_VISIBLE = 28;
+          else MAX_VISIBLE = 32;
 
           attendees.reverse().forEach((attendee, index) => {
             const div = document.createElement('div');
