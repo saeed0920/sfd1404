@@ -1,8 +1,12 @@
 {{ $donations := append site.Data.donations site.Data.donations_static }}
+{{ $donations := sort $donations "amount" "desc" }}
+
 {{ $donationsTotalInTomans := 0.0 }}
 {{ range $donations }}
   {{ $donationsTotalInTomans = add $donationsTotalInTomans (div (float .amount) 10) }}
 {{ end }}
+
+{{ $expenses := sort site.Data.expenses "amount" "desc" }}
 
 {{ $expensesTotalInTomans := 0.0 }}
 {{ range site.Data.expenses }}
@@ -89,8 +93,8 @@
           </tr>
         </thead>
         <tbody>
-          {{ if site.Data.expenses }}
-            {{ range $i, $e := site.Data.expenses }}
+          {{ if $expenses }}
+            {{ range $i, $e := $expenses }}
               <tr>
                 <td data-label="#"> {{ add $i 1 }}</td>
                 <td data-label="عنوان">{{ $e.title }}</td>

@@ -569,7 +569,7 @@ li {
 .table-container {
   width: 100%;
   margin: .5rem auto;
-  overflow-x: auto; 
+  overflow-x: auto;
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
@@ -664,9 +664,9 @@ tbody .empty-row td {
   gap: 1.5rem;
   margin-top: 2rem;
 
-  
+
 }
-.cards-container_card { 
+.cards-container_card {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -854,12 +854,14 @@ tbody .empty-row td {
 
 .attendees-container {
   display: grid;
+  place-items: center;
   grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
   justify-content: end;
   gap: 12px;
   padding: 10px 0;
   flex-wrap: nowrap;
   transition : all .2s ease-in;
+
 }
 
 .attendees-container.collapsed {
@@ -877,7 +879,24 @@ tbody .empty-row td {
   border-radius: 50%;
   overflow: visible;
   position: relative;
+  object-fit: cover;
 }
+
+
+@media screen and (max-width: 550px) {
+    .attendee {
+        width: 50px;
+        height: 50px;
+    }
+
+    .attendees-container {
+       gap : 8px;
+       grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr));
+    }
+
+
+}
+
 
 .attendee img {
   width: 100%;
