@@ -28,14 +28,17 @@
 <div class="financial-card">
   <h2>  وضعیت کلی 💰</h2>
 
-  <div class="financial-bar">
-    <div class="donations-bar" style="position: absolute; left:0; top:0; height:100%; background:#22c55e; width: {{ printf "%.0f" $percent }}%; border-radius: 8px 0 0 8px; transition: width 0.5s ease;"></div>
+  <div class="financial-bar ">
+    <div class="donations-bar" style="position: absolute; left:0; top:0; height:100%; width: {{ printf "%.0f" $percent }}%; border-radius: 8px 0 0 8px; transition: width 0.5s ease;"></div>
   </div>
 
   <div class="summary">
-    <p>درآمد کل: <script>document.write(Number({{ printf "%.0f" $donationsTotalInTomans }}).toLocaleString('fa-IR') + ' تومان');</script></p>
+    <p>درآمد کل: 
+      <!-- <script>document.write(Number({{ printf "%.0f" $donationsTotalInTomans }}).toLocaleString('fa-IR') + ' تومان');</script> -->
+      <span class="count gold-text" data-value="{{ printf "%.0f" $donationsTotalInTomans }}"></span> تومان
+    </p>
+   
     <p>هزینه کل: <script>document.write(Number({{ printf "%.0f" $expensesTotalInTomans }}).toLocaleString('fa-IR') + ' تومان');</script></p>
-    <p>مانده: <script>document.write(Number({{ printf "%.0f" (sub $donationsTotalInTomans $expensesTotalInTomans) }}).toLocaleString('fa-IR') + ' تومان');</script></p>
   </div>
 </div>
 
@@ -117,3 +120,27 @@
   </div>
 
 </div>
+
+<script>
+  function animateCount(el, duration = 4000) {
+    const target = parseInt(el.getAttribute("data-value"), 10);
+    const start = 0;
+    const startTime = performance.now();
+
+    function update(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const value = Math.floor(progress * (target - start) + start);
+      el.textContent = value.toLocaleString("fa-IR");
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      }
+    }
+
+    requestAnimationFrame(update);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".count").forEach(el => animateCount(el));
+  });
+</script>

@@ -625,6 +625,19 @@ tbody .empty-row td {
   border-radius: 16px;
   padding : 1rem 2rem;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+}
+
+@keyframes greenFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .financial-bar {
@@ -637,14 +650,29 @@ tbody .empty-row td {
   margin-bottom: 1rem;
 }
 
+
 .donations-bar {
+   background: linear-gradient(
+    90deg,
+    #16a34a,
+    #22c55e,
+    #4ade80,
+    #16a34a
+  );
+  background-size: 300% 300%;
+  animation: greenFlow 5s ease-in infinite;
   position: absolute;
   left: 0;
   top: 0;
   height: 100%;
-  background: var(--b-green-color);
   border-radius: 8px 0 0 8px;
   transition: width 0.5s ease;
+}
+
+.gold-text {
+  color: #FF9B00 !important;
+  font-weight: 600;
+  font-size: 1.2rem;
 }
 
 .summary p {
