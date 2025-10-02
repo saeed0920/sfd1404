@@ -37,3 +37,6 @@ members:
   - name: 'کیان کیوانی'
     link: ''
     image: '/image/team/kian.jpg'
+  - name: 'احسان نوفرستی'
+    link: 'https://www.linkedin.com/in/ehsan-noferesti'
+    image: '/image/team/ehsanN.jpg'
