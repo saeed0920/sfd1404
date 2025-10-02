@@ -574,7 +574,7 @@ li {
   font-weight: 700;
   color: #2e9c6a;
   margin-top: 0.5rem;
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
 .countdown-container .live-dot {
@@ -1088,4 +1088,22 @@ footer {
 .disable-button:focus {
   outline: none;
   box-shadow: none;
+}
+
+.canvas_hidden { 
+  scale: 0;
+  opacity: 0;
+}
+#canvas {
+  margin: 0;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  position: fixed;
+  transition: all 2s;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 99;
 }
