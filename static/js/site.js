@@ -108,6 +108,8 @@
     }
 
 
+
+    
     // countdown
     const countdownEl = document.querySelector('.countdown-bar');
     if (!countdownEl) return;
@@ -117,6 +119,8 @@
     const hoursEl = document.getElementById('hours');
     const minutesEl = document.getElementById('minutes');
     const secondsEl = document.getElementById('seconds');
+    const canvas = document.getElementById("canvas");
+    const countdownTitle = document.querySelector(".countdown-title");
 
     function padFa(n) {
       return n.toLocaleString('fa-IR', { minimumIntegerDigits: 2 });
@@ -125,10 +129,25 @@
     function updateCountdown() {
       const now = new Date();
       const diff = targetDate - now;
-
+      
+      // جشن شروع شده
       if (diff <= 0) {
-        document.getElementById('timer').style.display = 'none';
-        liveBadge.style.display = 'flex';
+        const diffSinceStart = now - targetDate;
+        // اگر کمتر از ۴ ساعت گذشته
+        if (diffSinceStart < 4 * 60 * 60 * 1000) {
+          document.getElementById('timer').style.display = 'none';
+          liveBadge.style.display = 'flex';
+          liveBadge.textContent = '🎉 جشن درحال برگزاری است';
+          canvas.classList.remove("canvas_hidden")
+          countdownTitle.style.display = "none";
+        } else {
+          // بعد از ۴ ساعت
+          document.getElementById('timer').style.display = 'none';
+          liveBadge.style.display = 'flex';
+          liveBadge.textContent = '✨ جشن تمام شد، سال بعد می‌بینمتون';
+          canvas.classList.add("canvas_hidden")
+          countdownTitle.style.display = "none";
+        }
         return;
       }
 
