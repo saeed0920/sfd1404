@@ -305,6 +305,7 @@ li {
     box-shadow 0.2s ease;
 }
 
+
 .member img {
   width: 80px;
   height: 80px;
@@ -321,6 +322,23 @@ li {
 .member:hover {
   transform: scale(1.03);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+@media screen and (max-width: 440px) {
+.member {
+  width: 7rem;
+}
+.member img {
+  width: 60px;
+  height: 60px;
+}
+.member h3 {
+  font-size: 1rem;
+}
+.team-members {
+  gap : 10px;
+}
 }
 
 .join-us {
@@ -1014,6 +1032,7 @@ tbody .empty-row td {
 .supporters-gallery {
   margin-top: 40px;
   display: grid;
+  gap :15px;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
 }
 
