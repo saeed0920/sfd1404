@@ -5,7 +5,7 @@
 
 {{< countdown
 title="تا برگزاری رویداد"
-targetDate="2025-10-02T17:30:00+03:30"
+targetDate="2025-10-02T17:40:00+03:30"
 liveText="رویداد شروع شد!"
 >}}
 {{< register main="true" >}}
